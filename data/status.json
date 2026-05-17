@@ -1,12 +1,12 @@
 {
   "_meta": {
-    "fetchedAt": "2026-05-17T19:34:28Z",
+    "fetchedAt": "2026-05-17T20:27:08Z",
     "httpStatus": 200
   },
   "data": {
     "ok": true,
     "service": "sts-web",
-    "ts": "2026-05-17T19:34:25.042Z",
+    "ts": "2026-05-17T20:27:04.157Z",
     "sheet_layout_ok": true,
     "sheet_layout": {
       "tracker": {
@@ -15,34 +15,34 @@
       }
     },
     "gas_ok": true,
-    "gas_latency_ms": 3065,
+    "gas_latency_ms": 4483,
     "google_auth_ok": true,
-    "google_auth_latency_ms": 186,
+    "google_auth_latency_ms": 106,
     "google_cloud_ok": true,
-    "google_cloud_latency_ms": 334,
+    "google_cloud_latency_ms": 156,
     "anthropic_ok": true,
-    "anthropic_latency_ms": 396,
+    "anthropic_latency_ms": 241,
     "deepseek_ok": true,
     "deepseek_configured": true,
-    "deepseek_latency_ms": 429,
+    "deepseek_latency_ms": 394,
     "bedrock_ok": true,
     "bedrock_configured": true,
-    "bedrock_latency_ms": 178,
+    "bedrock_latency_ms": 100,
     "gemini_ok": true,
     "gemini_configured": true,
-    "gemini_latency_ms": 178,
+    "gemini_latency_ms": 140,
     "stripe_ok": true,
-    "stripe_latency_ms": 425,
+    "stripe_latency_ms": 307,
     "finnhub_ok": true,
-    "finnhub_latency_ms": 308,
+    "finnhub_latency_ms": 175,
     "yahoo_ok": true,
-    "yahoo_latency_ms": 307,
+    "yahoo_latency_ms": 195,
     "stooq_ok": true,
-    "stooq_latency_ms": 658,
+    "stooq_latency_ms": 572,
     "google_news_ok": true,
-    "google_news_latency_ms": 342,
+    "google_news_latency_ms": 213,
     "google_nlp_ok": true,
-    "google_nlp_latency_ms": 184,
+    "google_nlp_latency_ms": 135,
     "sendgrid_ok": true,
     "sendgrid_latency_ms": 0,
     "sendgrid_configured": false,
@@ -76,10 +76,10 @@
     "replication_max_lag_seconds": null,
     "trader_digest_ok": false,
     "trader_digest_last_at": "2026-05-15T11:15:05.903Z",
-    "trader_digest_age_hours": 56.3,
+    "trader_digest_age_hours": 57.2,
     "ops_digest_ok": true,
     "ops_digest_last_at": "2026-05-17T08:06:55.875Z",
-    "ops_digest_age_hours": 11.5,
+    "ops_digest_age_hours": 12.3,
     "perf_snapshot_ok": true,
     "perf_snapshot_last_date": "2026-05-17",
     "pick_tracker_calls_24h": 0,
@@ -95,7 +95,7 @@
     "predictor_funnel_ai_selections": 0,
     "gh_actions_tests_ok": false,
     "gh_actions_tests_last_at": "2026-04-10T12:36:05.982Z",
-    "gh_actions_tests_age_hours": 895,
+    "gh_actions_tests_age_hours": 895.8,
     "cron_registry_total": 35,
     "cron_registry_with_signal": 14,
     "cron_registry_ok_count": 5,
@@ -113,7 +113,7 @@
         "name": "Morning brief email",
         "location": "vercel",
         "signal": "sts_trader_digest_log (max 28h)",
-        "age_hours": 56.3
+        "age_hours": 57.2
       },
       {
         "id": "pick-tracker-fallback",
@@ -141,21 +141,21 @@
         "name": "Top 200 sentiment refresh (4 AM)",
         "location": "gas",
         "signal": "sts_sentiment_snapshot (max 26h)",
-        "age_hours": 30.7
+        "age_hours": 31.6
       },
       {
         "id": "triggerStockPredictor",
         "name": "Stock Predictor (5:15 AM)",
         "location": "gas",
         "signal": "sts_picks_snapshot (max 26h)",
-        "age_hours": 55.1
+        "age_hours": 56
       },
       {
         "id": "sendTraderPicksDigest",
         "name": "Trader picks digest (7 AM)",
         "location": "gas",
         "signal": "sts_trader_digest_log (max 26h)",
-        "age_hours": 56.3
+        "age_hours": 57.2
       },
       {
         "id": "triggerEveningHealthCheck",
