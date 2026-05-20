@@ -114,15 +114,18 @@ function render(snapshot) {
   const meta = snapshot._meta || {};
   const data = snapshot.data || snapshot;
 
-  // Stale banner: if the snapshot itself is older than 15 min, the cron may be failing
+  // Stale banner: GitHub free-tier scheduled workflows are typically delayed 30-180 min
+  // (despite the */5 * * * * schedule) — bumped threshold 15 min → 3 hours 2026-05-20 to
+  // stop firing false-positive warnings on normal GH cron drift. If snapshot exceeds 3h,
+  // the cron is genuinely stuck (or the main site is unreachable).
   const snapAge = meta.fetchedAt ? Date.now() - new Date(meta.fetchedAt).getTime() : Infinity;
-  const stale = snapAge > 15 * 60 * 1000;
+  const stale = snapAge > 3 * 60 * 60 * 1000;
   const staleEl = document.getElementById('staleBanner');
   if (stale) {
     staleEl.className = 'stale';
     staleEl.style.display = 'block';
     staleEl.innerHTML = '⚠ This status page is showing data from ' + fmtAge(meta.fetchedAt) +
-      '. Either the snapshot job is failing or main infrastructure is down. ' +
+      '. The snapshot job (GitHub Actions) has not run in over 3 hours — likely the GH cron is stuck OR the main site is unreachable. ' +
       'If the main site is also unreachable, treat all components as suspect.';
   }
 
