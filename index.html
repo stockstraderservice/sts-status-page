@@ -96,7 +96,9 @@ const COMPONENTS = [
   { key: 'stooq',         label: 'Stooq (historical prices)' },
   { key: 'google_news',   label: 'Google News RSS' },
   { key: 'google_nlp',    label: 'Google NLP' },
-  { key: 'sendgrid',      label: 'SendGrid (email)', optional: true },
+  // SendGrid removed 2026-05-20 — email channel migrated to GAS MailApp on 2026-05-18
+  // (see project_sts_session_20260518). The sendgrid_* fields on /api/health/deep stay
+  // for back-compat but are no longer surfaced on this page since the service is unused.
 ];
 
 function fmtAge(iso) {
