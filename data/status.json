@@ -1,12 +1,12 @@
 {
   "_meta": {
-    "fetchedAt": "2026-05-24T09:01:11Z",
+    "fetchedAt": "2026-05-24T09:30:23Z",
     "httpStatus": 200
   },
   "data": {
     "ok": true,
     "service": "sts-web",
-    "ts": "2026-05-24T09:01:06.809Z",
+    "ts": "2026-05-24T09:30:19.474Z",
     "sheet_layout_ok": true,
     "sheet_layout": {
       "tracker": {
@@ -15,34 +15,34 @@
       }
     },
     "gas_ok": true,
-    "gas_latency_ms": 4463,
+    "gas_latency_ms": 4194,
     "google_auth_ok": true,
-    "google_auth_latency_ms": 167,
+    "google_auth_latency_ms": 249,
     "google_cloud_ok": true,
-    "google_cloud_latency_ms": 203,
+    "google_cloud_latency_ms": 253,
     "anthropic_ok": true,
-    "anthropic_latency_ms": 212,
+    "anthropic_latency_ms": 451,
     "deepseek_ok": true,
     "deepseek_configured": true,
-    "deepseek_latency_ms": 427,
+    "deepseek_latency_ms": 497,
     "bedrock_ok": true,
     "bedrock_configured": true,
-    "bedrock_latency_ms": 163,
+    "bedrock_latency_ms": 261,
     "gemini_ok": true,
     "gemini_configured": true,
-    "gemini_latency_ms": 162,
+    "gemini_latency_ms": 261,
     "stripe_ok": true,
-    "stripe_latency_ms": 350,
+    "stripe_latency_ms": 462,
     "finnhub_ok": true,
-    "finnhub_latency_ms": 192,
+    "finnhub_latency_ms": 428,
     "yahoo_ok": true,
-    "yahoo_latency_ms": 192,
+    "yahoo_latency_ms": 259,
     "stooq_ok": true,
-    "stooq_latency_ms": 530,
+    "stooq_latency_ms": 847,
     "google_news_ok": true,
-    "google_news_latency_ms": 200,
+    "google_news_latency_ms": 441,
     "google_nlp_ok": true,
-    "google_nlp_latency_ms": 271,
+    "google_nlp_latency_ms": 429,
     "sendgrid_ok": true,
     "sendgrid_latency_ms": 0,
     "sendgrid_configured": false,
@@ -76,10 +76,10 @@
     "replication_max_lag_seconds": null,
     "trader_digest_ok": true,
     "trader_digest_last_at": "2026-05-22T11:10:56.296Z",
-    "trader_digest_age_hours": 45.8,
+    "trader_digest_age_hours": 46.3,
     "ops_digest_ok": true,
     "ops_digest_last_at": "2026-05-24T08:07:03.933Z",
-    "ops_digest_age_hours": 0.9,
+    "ops_digest_age_hours": 1.4,
     "perf_snapshot_ok": false,
     "perf_snapshot_last_date": "2026-05-22",
     "pick_tracker_calls_24h": 8,
@@ -95,10 +95,10 @@
     "predictor_funnel_ai_selections": 0,
     "gh_actions_tests_ok": false,
     "gh_actions_tests_last_at": "2026-05-22T14:01:02.742Z",
-    "gh_actions_tests_age_hours": 43,
+    "gh_actions_tests_age_hours": 43.5,
     "cron_registry_total": 49,
     "cron_registry_with_signal": 23,
-    "cron_registry_ok_count": 20,
+    "cron_registry_ok_count": 19,
     "cron_registry_stale_count": 3,
     "cron_registry_stale": [
       {
@@ -123,8 +123,17 @@
         "age_hours": null
       }
     ],
-    "cron_registry_shadowed_count": 0,
-    "cron_registry_shadowed": [],
+    "cron_registry_shadowed_count": 1,
+    "cron_registry_shadowed": [
+      {
+        "id": "refreshSentimentTop200",
+        "name": "Top 200 sentiment refresh (4:50 AM)",
+        "location": "gas",
+        "signal": "sts_sentiment_snapshot (max 26h)",
+        "age_hours": 46.8,
+        "shadowed_by": "vercel-sentiment-refresh"
+      }
+    ],
     "replication_slowest_slot": null
   }
 }
