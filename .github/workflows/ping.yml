@@ -7,6 +7,9 @@ on:
     - cron: '*/5 * * * *'
   workflow_dispatch: {}
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: write
 
@@ -57,13 +60,21 @@ jobs:
           # run A finishing as run B starts). Without this, the loser's push is
           # discarded and its snapshot lost. Up to 3 attempts, each rebasing on
           # latest origin/main before re-pushing.
+          #
+          # -X theirs auto-resolves any data/status.json merge conflict by
+          # keeping our (in-flight) snapshot. In rebase context "theirs" means
+          # the side being rebased (us) — counterintuitive but correct: we want
+          # OUR fresher fetch to win over the snapshot that already landed,
+          # since only the latest snapshot matters to the status page UI.
+          # Added 2026-06-05 after exit-1 failure when run A and B both wrote
+          # data/status.json and the bare rebase choked on the conflict.
           for i in 1 2 3; do
             if git push; then
               echo "Pushed on attempt $i"
               exit 0
             fi
             echo "Push attempt $i rejected — rebasing on origin/main and retrying"
-            git pull --rebase origin main
+            git pull --rebase -X theirs origin main
           done
           echo "::error::push failed after 3 attempts"
           exit 1
