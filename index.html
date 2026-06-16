@@ -102,15 +102,14 @@ const COMPONENTS = [
   // for back-compat but are no longer surfaced on this page since the service is unused.
 ];
 
-// Provider favicons (Google s2 favicon service by domain — Clearbit's logo API was
-// deprecated) — shown instead of the text label for distinct brands. Google-family +
-// AI providers keep their text labels (ambiguous as icons). Falls back to the text
-// label if the icon 404s (img onerror).
-const LOGO = { finnhub:'finnhub.io', fmp:'financialmodelingprep.com', yahoo:'yahoo.com', stooq:'stooq.com', stripe:'stripe.com' };
+// Provider logos — self-hosted on the prod domain (/brand/providers/*.png) so they
+// always render (external logo CDNs/favicon services were unreliable: Clearbit dead,
+// google favicon ad-blocked). Shown instead of the text label for distinct brands;
+// Google-family + AI providers keep text labels. Falls back to the label if it 404s.
+const LOGO = { finnhub:1, fmp:1, yahoo:1, stooq:1, stripe:1 };
 function labelHtml(c) {
-  const d = LOGO[c.key];
-  if (!d) return c.label;
-  return '<img src="https://www.google.com/s2/favicons?domain=' + d + '&sz=64" alt="' + c.label + '" title="' + c.label +
+  if (!LOGO[c.key]) return c.label;
+  return '<img src="https://www.stockstraderservice.com/brand/providers/' + c.key + '.png" alt="' + c.label + '" title="' + c.label +
          '" width="16" height="16" style="object-fit:contain;vertical-align:middle" ' +
          'onerror="this.outerHTML=this.getAttribute(\'alt\')">';
 }
