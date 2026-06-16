@@ -85,13 +85,14 @@
 const COMPONENTS = [
   { key: 'gas',           label: 'Google Apps Script' },
   { key: 'google_auth',   label: 'Google OAuth' },
-  { key: 'google_cloud',  label: 'Google Cloud APIs' },
+  { key: 'google_cloud',  label: 'Google Cloud' },
   { key: 'anthropic',     label: 'Anthropic API' },
   { key: 'bedrock',       label: 'AWS Bedrock (failover)', optional: true },
   { key: 'gemini',        label: 'Google Gemini (failover)', optional: true },
   { key: 'deepseek',      label: 'DeepSeek (failover)', optional: true },
   { key: 'stripe',        label: 'Stripe' },
   { key: 'finnhub',       label: 'Finnhub (market data)' },
+  { key: 'fmp',           label: 'FMP (S&P 500 benchmark)' },
   { key: 'yahoo',         label: 'Yahoo Finance' },
   { key: 'stooq',         label: 'Stooq (historical prices)' },
   { key: 'google_news',   label: 'Google News RSS' },
@@ -100,6 +101,18 @@ const COMPONENTS = [
   // (see project_sts_session_20260518). The sendgrid_* fields on /api/health/deep stay
   // for back-compat but are no longer surfaced on this page since the service is unused.
 ];
+
+// Provider brand logos (Clearbit by domain) — shown instead of the text label for
+// distinct brands. Google-family + AI providers keep their text labels (a logo would
+// be ambiguous). Falls back to the text label if the logo 404s (img onerror).
+const LOGO = { finnhub:'finnhub.io', fmp:'financialmodelingprep.com', yahoo:'yahoo.com', stooq:'stooq.com', stripe:'stripe.com' };
+function labelHtml(c) {
+  const d = LOGO[c.key];
+  if (!d) return c.label;
+  return '<img src="https://logo.clearbit.com/' + d + '" alt="' + c.label + '" title="' + c.label +
+         '" style="height:14px;width:auto;max-width:96px;object-fit:contain;vertical-align:middle" ' +
+         'onerror="this.outerHTML=this.getAttribute(\'alt\')">';
+}
 
 function fmtAge(iso) {
   if (!iso) return 'unknown';
@@ -168,7 +181,7 @@ function render(snapshot) {
 
     const tr = document.createElement('tr');
     tr.innerHTML = '<td class="dot ' + dotClass + '"></td>' +
-                   '<td class="label">' + c.label + '</td>' +
+                   '<td class="label">' + labelHtml(c) + '</td>' +
                    '<td class="right">' + detail + '</td>';
     rowsEl.appendChild(tr);
   }
