@@ -1,12 +1,12 @@
 {
   "_meta": {
-    "fetchedAt": "2026-08-12T20:10:56Z",
+    "fetchedAt": "2026-08-12T21:00:35Z",
     "httpStatus": 200
   },
   "data": {
     "ok": true,
     "service": "sts-web",
-    "ts": "2026-08-12T20:10:52.917Z",
+    "ts": "2026-08-12T21:00:28.123Z",
     "sheet_layout_ok": true,
     "sheet_layout": {
       "tracker": {
@@ -15,10 +15,10 @@
       }
     },
     "gas_ok": true,
-    "gas_latency_ms": 3484,
+    "gas_latency_ms": 7080,
     "daily_mechanical_overrides": 0,
     "daily_mechanical_overrides_ok": true,
-    "daily_ai_cost_usd": 6.51,
+    "daily_ai_cost_usd": 6.52,
     "daily_ai_cost_ok": true,
     "daily_perf_backtest_runs": 0,
     "daily_perf_backtest_ok": true,
@@ -29,40 +29,40 @@
     "daily_stale_sell_10d": 0,
     "daily_stale_sell_ok": true,
     "google_auth_ok": true,
-    "google_auth_latency_ms": 261,
+    "google_auth_latency_ms": 187,
     "google_cloud_ok": true,
-    "google_cloud_latency_ms": 260,
+    "google_cloud_latency_ms": 187,
     "anthropic_ok": true,
-    "anthropic_latency_ms": 366,
+    "anthropic_latency_ms": 317,
     "deepseek_ok": true,
     "deepseek_configured": true,
-    "deepseek_latency_ms": 489,
+    "deepseek_latency_ms": 464,
     "bedrock_ok": true,
     "bedrock_configured": true,
-    "bedrock_latency_ms": 259,
+    "bedrock_latency_ms": 184,
     "gemini_ok": true,
     "gemini_configured": true,
-    "gemini_latency_ms": 259,
+    "gemini_latency_ms": 265,
     "openai_ok": true,
     "openai_configured": true,
-    "openai_latency_ms": 664,
+    "openai_latency_ms": 653,
     "vertex_ok": true,
     "vertex_configured": true,
     "vertex_latency_ms": 0,
     "stripe_ok": true,
-    "stripe_latency_ms": 392,
+    "stripe_latency_ms": 405,
     "finnhub_ok": true,
-    "finnhub_latency_ms": 310,
+    "finnhub_latency_ms": 250,
     "fmp_ok": true,
-    "fmp_latency_ms": 565,
+    "fmp_latency_ms": 269,
     "yahoo_ok": true,
-    "yahoo_latency_ms": 256,
+    "yahoo_latency_ms": 167,
     "stooq_ok": true,
-    "stooq_latency_ms": 518,
+    "stooq_latency_ms": 543,
     "google_news_ok": true,
-    "google_news_latency_ms": 353,
+    "google_news_latency_ms": 279,
     "google_nlp_ok": true,
-    "google_nlp_latency_ms": 254,
+    "google_nlp_latency_ms": 261,
     "user_count": 41,
     "scale_phase": 1,
     "scale_phase_label": "10–50 traders",
@@ -79,7 +79,7 @@
     "neon_strategy_history_last_changed": "2026-08-11 11:30:38.261901+00",
     "get_signals_ok": true,
     "get_signals_cache_count": 387,
-    "get_signals_cache_fresh": true,
+    "get_signals_cache_fresh": false,
     "get_signals_newest_cached_at": "2026-08-12T17:00:20.788Z",
     "tracker_picks_ok": true,
     "tracker_picks_total": 0,
@@ -93,10 +93,10 @@
     "replication_max_lag_seconds": null,
     "trader_digest_ok": false,
     "trader_digest_last_at": "2026-08-11T10:34:40.660Z",
-    "trader_digest_age_hours": 33.6,
+    "trader_digest_age_hours": 34.4,
     "ops_digest_ok": false,
     "ops_digest_last_at": "2026-08-11T11:09:30.494Z",
-    "ops_digest_age_hours": 33,
+    "ops_digest_age_hours": 33.8,
     "perf_snapshot_ok": true,
     "perf_snapshot_last_date": "2026-08-11",
     "pick_tracker_calls_24h": 0,
@@ -115,7 +115,7 @@
     "predictor_funnel_ai_selections": 25,
     "gh_actions_tests_ok": true,
     "gh_actions_tests_last_at": "2026-08-12T12:33:59.352Z",
-    "gh_actions_tests_age_hours": 7.6,
+    "gh_actions_tests_age_hours": 8.4,
     "cron_registry_total": 70,
     "cron_registry_with_signal": 35,
     "cron_registry_ok_count": 25,
@@ -133,7 +133,7 @@
         "name": "Morning brief email",
         "location": "vercel",
         "signal": "sts_trader_digest_log (max 28h)",
-        "age_hours": 33.6
+        "age_hours": 34.4
       },
       {
         "id": "pick-tracker-fallback",
@@ -147,28 +147,28 @@
         "name": "AI Strategy pick-floor re-validate (7:30 AM EDT)",
         "location": "vercel",
         "signal": "sts_strategy (max 28h)",
-        "age_hours": 32.7
+        "age_hours": 33.5
       },
       {
         "id": "scheduler-ops-digest",
         "name": "Ops digest fallback (Vercel-scheduled, GAS-executed)",
         "location": "vercel",
         "signal": "sts_ops_digest_log (max 26h)",
-        "age_hours": 33
+        "age_hours": 33.8
       },
       {
         "id": "premarket-integrity",
         "name": "Pre-market data-integrity agent (before 7 AM ET)",
         "location": "vercel",
         "signal": "cache premarket_integrity_v1* (max 26h)",
-        "age_hours": 33.2
+        "age_hours": 34
       },
       {
         "id": "sendOpsDigest",
         "name": "Ops digest (7:00 AM ET)",
         "location": "gas",
         "signal": "sts_ops_digest_log (max 26h)",
-        "age_hours": 33
+        "age_hours": 33.8
       },
       {
         "id": "triggerPickTrackerAnalysis",
@@ -182,14 +182,14 @@
         "name": "Performance backtest (4:45 AM)",
         "location": "gas",
         "signal": "sts_performance_snapshot (max 26h)",
-        "age_hours": 35.5
+        "age_hours": 36.3
       },
       {
         "id": "sendTraderPicksDigest",
         "name": "Trader picks digest (event-chained ~6:09; 6:55 + 7:00 triggers)",
         "location": "gas",
         "signal": "sts_trader_digest_log (max 26h)",
-        "age_hours": 33.6
+        "age_hours": 34.4
       }
     ],
     "cron_registry_shadowed_count": 0,
