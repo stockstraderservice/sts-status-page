@@ -1,12 +1,12 @@
 {
   "_meta": {
-    "fetchedAt": "2026-08-12T14:40:11Z",
+    "fetchedAt": "2026-08-12T15:05:40Z",
     "httpStatus": 200
   },
   "data": {
     "ok": true,
     "service": "sts-web",
-    "ts": "2026-08-12T14:39:56.878Z",
+    "ts": "2026-08-12T15:05:35.965Z",
     "sheet_layout_ok": true,
     "sheet_layout": {
       "tracker": {
@@ -15,7 +15,7 @@
       }
     },
     "gas_ok": true,
-    "gas_latency_ms": 3567,
+    "gas_latency_ms": 4439,
     "daily_mechanical_overrides": 0,
     "daily_mechanical_overrides_ok": true,
     "daily_ai_cost_usd": 6.29,
@@ -29,41 +29,40 @@
     "daily_stale_sell_10d": 0,
     "daily_stale_sell_ok": true,
     "google_auth_ok": true,
-    "google_auth_latency_ms": 240,
+    "google_auth_latency_ms": 242,
     "google_cloud_ok": true,
-    "google_cloud_latency_ms": 239,
+    "google_cloud_latency_ms": 241,
     "anthropic_ok": true,
-    "anthropic_latency_ms": 379,
+    "anthropic_latency_ms": 322,
     "deepseek_ok": true,
     "deepseek_configured": true,
-    "deepseek_latency_ms": 422,
+    "deepseek_latency_ms": 494,
     "bedrock_ok": true,
     "bedrock_configured": true,
-    "bedrock_latency_ms": 241,
+    "bedrock_latency_ms": 239,
     "gemini_ok": true,
     "gemini_configured": true,
-    "gemini_latency_ms": 241,
-    "openai_ok": false,
+    "gemini_latency_ms": 238,
+    "openai_ok": true,
     "openai_configured": true,
-    "openai_latency_ms": 15001,
-    "openai_error": "The operation was aborted due to timeout",
+    "openai_latency_ms": 695,
     "vertex_ok": true,
     "vertex_configured": true,
     "vertex_latency_ms": 0,
     "stripe_ok": true,
-    "stripe_latency_ms": 386,
+    "stripe_latency_ms": 459,
     "finnhub_ok": true,
-    "finnhub_latency_ms": 300,
+    "finnhub_latency_ms": 472,
     "fmp_ok": true,
     "fmp_latency_ms": 363,
     "yahoo_ok": true,
-    "yahoo_latency_ms": 238,
+    "yahoo_latency_ms": 235,
     "stooq_ok": true,
-    "stooq_latency_ms": 566,
+    "stooq_latency_ms": 506,
     "google_news_ok": true,
-    "google_news_latency_ms": 369,
+    "google_news_latency_ms": 302,
     "google_nlp_ok": true,
-    "google_nlp_latency_ms": 238,
+    "google_nlp_latency_ms": 229,
     "user_count": 41,
     "scale_phase": 1,
     "scale_phase_label": "10–50 traders",
@@ -94,17 +93,17 @@
     "replication_max_lag_seconds": null,
     "trader_digest_ok": false,
     "trader_digest_last_at": "2026-08-11T10:34:40.660Z",
-    "trader_digest_age_hours": 28.1,
+    "trader_digest_age_hours": 28.5,
     "ops_digest_ok": true,
     "ops_digest_last_at": "2026-08-11T11:09:30.494Z",
-    "ops_digest_age_hours": 27.5,
+    "ops_digest_age_hours": 27.9,
     "perf_snapshot_ok": true,
     "perf_snapshot_last_date": "2026-08-11",
     "pick_tracker_calls_24h": 0,
     "portfolio_signals_calls_24h": 20,
     "watchlist_ai_today_ok": true,
     "watchlist_ai_today_pct": 100,
-    "watchlist_ai_today_count": 385,
+    "watchlist_ai_today_count": 381,
     "watchlist_ai_total_non_tracker": 201,
     "watchlist_ai_sunday_skip": false,
     "trader_digest_weekend_skip": false,
@@ -116,7 +115,7 @@
     "predictor_funnel_ai_selections": 25,
     "gh_actions_tests_ok": true,
     "gh_actions_tests_last_at": "2026-08-12T12:33:59.352Z",
-    "gh_actions_tests_age_hours": 2.1,
+    "gh_actions_tests_age_hours": 2.5,
     "cron_registry_total": 70,
     "cron_registry_with_signal": 35,
     "cron_registry_ok_count": 26,
@@ -134,7 +133,7 @@
         "name": "Morning brief email",
         "location": "vercel",
         "signal": "sts_trader_digest_log (max 28h)",
-        "age_hours": 28.1
+        "age_hours": 28.5
       },
       {
         "id": "pick-tracker-fallback",
@@ -148,21 +147,21 @@
         "name": "Ops digest fallback (Vercel-scheduled, GAS-executed)",
         "location": "vercel",
         "signal": "sts_ops_digest_log (max 26h)",
-        "age_hours": 27.5
+        "age_hours": 27.9
       },
       {
         "id": "premarket-integrity",
         "name": "Pre-market data-integrity agent (before 7 AM ET)",
         "location": "vercel",
         "signal": "cache premarket_integrity_v1* (max 26h)",
-        "age_hours": 27.7
+        "age_hours": 28.1
       },
       {
         "id": "sendOpsDigest",
         "name": "Ops digest (7:00 AM ET)",
         "location": "gas",
         "signal": "sts_ops_digest_log (max 26h)",
-        "age_hours": 27.5
+        "age_hours": 27.9
       },
       {
         "id": "triggerPickTrackerAnalysis",
@@ -176,14 +175,14 @@
         "name": "Performance backtest (4:45 AM)",
         "location": "gas",
         "signal": "sts_performance_snapshot (max 26h)",
-        "age_hours": 29.9
+        "age_hours": 30.4
       },
       {
         "id": "sendTraderPicksDigest",
         "name": "Trader picks digest (event-chained ~6:09; 6:55 + 7:00 triggers)",
         "location": "gas",
         "signal": "sts_trader_digest_log (max 26h)",
-        "age_hours": 28.1
+        "age_hours": 28.5
       }
     ],
     "cron_registry_shadowed_count": 0,
