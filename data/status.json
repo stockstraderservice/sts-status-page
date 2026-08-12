@@ -1,12 +1,12 @@
 {
   "_meta": {
-    "fetchedAt": "2026-08-12T23:05:59Z",
+    "fetchedAt": "2026-08-12T23:08:20Z",
     "httpStatus": 503
   },
   "data": {
     "ok": false,
     "service": "sts-web",
-    "ts": "2026-08-12T23:05:49.055Z",
+    "ts": "2026-08-12T23:08:05.099Z",
     "sheet_layout_ok": true,
     "sheet_layout": {
       "tracker": {
@@ -30,40 +30,41 @@
     "daily_stale_sell_10d": 0,
     "daily_stale_sell_ok": true,
     "google_auth_ok": true,
-    "google_auth_latency_ms": 153,
+    "google_auth_latency_ms": 198,
     "google_cloud_ok": true,
-    "google_cloud_latency_ms": 153,
+    "google_cloud_latency_ms": 198,
     "anthropic_ok": true,
-    "anthropic_latency_ms": 367,
+    "anthropic_latency_ms": 400,
     "deepseek_ok": true,
     "deepseek_configured": true,
-    "deepseek_latency_ms": 408,
+    "deepseek_latency_ms": 447,
     "bedrock_ok": true,
     "bedrock_configured": true,
-    "bedrock_latency_ms": 152,
+    "bedrock_latency_ms": 197,
     "gemini_ok": true,
     "gemini_configured": true,
-    "gemini_latency_ms": 150,
-    "openai_ok": true,
+    "gemini_latency_ms": 196,
+    "openai_ok": false,
     "openai_configured": true,
-    "openai_latency_ms": 556,
+    "openai_latency_ms": 15001,
+    "openai_error": "The operation was aborted due to timeout",
     "vertex_ok": true,
     "vertex_configured": true,
     "vertex_latency_ms": 0,
     "stripe_ok": true,
-    "stripe_latency_ms": 357,
+    "stripe_latency_ms": 425,
     "finnhub_ok": true,
-    "finnhub_latency_ms": 224,
+    "finnhub_latency_ms": 286,
     "fmp_ok": true,
     "fmp_latency_ms": 345,
     "yahoo_ok": true,
-    "yahoo_latency_ms": 149,
+    "yahoo_latency_ms": 196,
     "stooq_ok": true,
-    "stooq_latency_ms": 460,
+    "stooq_latency_ms": 582,
     "google_news_ok": true,
-    "google_news_latency_ms": 386,
+    "google_news_latency_ms": 418,
     "google_nlp_ok": true,
-    "google_nlp_latency_ms": 149,
+    "google_nlp_latency_ms": 188,
     "user_count": 41,
     "scale_phase": 1,
     "scale_phase_label": "10–50 traders",
@@ -94,10 +95,10 @@
     "replication_max_lag_seconds": null,
     "trader_digest_ok": false,
     "trader_digest_last_at": "2026-08-11T10:34:40.660Z",
-    "trader_digest_age_hours": 36.5,
+    "trader_digest_age_hours": 36.6,
     "ops_digest_ok": false,
     "ops_digest_last_at": "2026-08-11T11:09:30.494Z",
-    "ops_digest_age_hours": 35.9,
+    "ops_digest_age_hours": 36,
     "perf_snapshot_ok": true,
     "perf_snapshot_last_date": "2026-08-11",
     "pick_tracker_calls_24h": 0,
@@ -116,7 +117,7 @@
     "predictor_funnel_ai_selections": 25,
     "gh_actions_tests_ok": true,
     "gh_actions_tests_last_at": "2026-08-12T12:33:59.352Z",
-    "gh_actions_tests_age_hours": 10.5,
+    "gh_actions_tests_age_hours": 10.6,
     "cron_registry_total": 70,
     "cron_registry_with_signal": 35,
     "cron_registry_ok_count": 25,
@@ -134,7 +135,7 @@
         "name": "Morning brief email",
         "location": "vercel",
         "signal": "sts_trader_digest_log (max 28h)",
-        "age_hours": 36.5
+        "age_hours": 36.6
       },
       {
         "id": "pick-tracker-fallback",
@@ -155,21 +156,21 @@
         "name": "Ops digest fallback (Vercel-scheduled, GAS-executed)",
         "location": "vercel",
         "signal": "sts_ops_digest_log (max 26h)",
-        "age_hours": 35.9
+        "age_hours": 36
       },
       {
         "id": "premarket-integrity",
         "name": "Pre-market data-integrity agent (before 7 AM ET)",
         "location": "vercel",
         "signal": "cache premarket_integrity_v1* (max 26h)",
-        "age_hours": 36.1
+        "age_hours": 36.2
       },
       {
         "id": "sendOpsDigest",
         "name": "Ops digest (7:00 AM ET)",
         "location": "gas",
         "signal": "sts_ops_digest_log (max 26h)",
-        "age_hours": 35.9
+        "age_hours": 36
       },
       {
         "id": "triggerPickTrackerAnalysis",
@@ -190,7 +191,7 @@
         "name": "Trader picks digest (event-chained ~6:09; 6:55 + 7:00 triggers)",
         "location": "gas",
         "signal": "sts_trader_digest_log (max 26h)",
-        "age_hours": 36.5
+        "age_hours": 36.6
       }
     ],
     "cron_registry_shadowed_count": 0,
